@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ignite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">I</span>
+      <span class="brand-name">Ignite</span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-nav="dashboard">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><rect x="3.5" y="3.5" width="7" height="8" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3.5" y="14.5" width="7" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Command Center</span>
+      </button>
+      <button class="nav-item" data-nav="opportunities">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="M3 12l4.5-8.5a2 2 0 0 1 1.8-1.1h5.4a2 2 0 0 1 1.8 1.1L21 12l-4.5 8.5a2 2 0 0 1-1.8 1.1H9.3a2 2 0 0 1-1.8-1.1L3 12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Opportunities</span>
+      </button>
+      <button class="nav-item" data-nav="conversations">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="M4 5.5h16v11H9l-4 3.5v-3.5H4v-11z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <span>Conversations</span>
+        <span class="nav-badge" id="nav-conv-badge">47</span>
+      </button>
+      <button class="nav-item" data-nav="pipeline">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Pipeline</span>
+      </button>
+      <button class="nav-item" data-nav="decisions">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.5v5l3.2 1.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>AI Decisions</span>
+      </button>
+      <button class="nav-item" data-nav="integrations">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="M9 3v4M15 3v4M6 7h12l-1 4H7L6 7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 11v3a4 4 0 0 0 4 4h0a4 4 0 0 0 4-4v-3" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Integrations</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="crm-pill"><span class="dot dot-green"></span> Nutshell CRM connected</div>
+      <div class="role-card">
+        <div class="avatar">RO</div>
+        <div class="role-meta">
+          <span class="role-title">Revenue Operations</span>
+          <span class="role-scope">Demo workspace</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-titles">
+        <h1 id="page-title">Revenue Command Center</h1>
+        <p id="page-subtitle">Autonomous pipeline generation from your existing Nutshell CRM data</p>
+      </div>
+      <div class="topbar-right">
+        <div class="live-indicator"><span class="pulse-dot"></span> Live</div>
+      </div>
+    </header>
+
+    <main id="view-root">
+
+      <!-- ============ COMMAND CENTER ============ -->
+      <section class="view active" id="view-dashboard">
+        <div class="metrics-row">
+          <div class="metric-card"><div class="metric-label">CRM Records Analyzed</div><div class="metric-value mono">30,247</div><div class="metric-trend">Synced 12 min ago</div></div>
+          <div class="metric-card"><div class="metric-label">Reactivation Opportunities</div><div class="metric-value mono">1,284</div><div class="metric-trend">▲ 62 this week</div></div>
+          <div class="metric-card"><div class="metric-label">A-Tier Opportunities</div><div class="metric-value mono">186</div><div class="metric-trend">▲ 9 this week</div></div>
+          <div class="metric-card"><div class="metric-label">Active AI Conversations</div><div class="metric-value mono">47</div><div class="metric-trend">14 awaiting reply</div></div>
+          <div class="metric-card"><div class="metric-label">Pipeline Generated</div><div class="metric-value mono">$184,500</div><div class="metric-trend">▲ 21% vs last month</div></div>
+          <div class="metric-card"><div class="metric-label">Meetings Booked</div><div class="metric-value mono">23</div><div class="metric-trend">▲ 5 this week</div></div>
+        </div>
+
+        <div class="card funnel-card">
+          <div class="section-title-row"><h2>Reactivation Funnel — Last 30 Days</h2><span class="card-header-sub">30,247 records → 23 meetings booked</span></div>
+          <div class="funnel-row">
+            <div class="funnel-step">
+              <span class="funnel-number mono">30,247</span>
+              <span class="funnel-label">CRM Records</span>
+              <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:100%"></div></div>
+            </div>
+            <div class="funnel-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="funnel-step">
+              <span class="funnel-number mono">1,284</span>
+              <span class="funnel-label">Opportunities</span>
+              <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:68%"></div></div>
+            </div>
+            <div class="funnel-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="funnel-step">
+              <span class="funnel-number mono">186</span>
+              <span class="funnel-label">A-Tier</span>
+              <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:44%"></div></div>
+            </div>
+            <div class="funnel-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="funnel-step">
+              <span class="funnel-number mono">47</span>
+              <span class="funnel-label">Conversations</span>
+              <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:26%"></div></div>
+            </div>
+            <div class="funnel-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="funnel-step">
+              <span class="funnel-number mono">23</span>
+              <span class="funnel-label">Meetings Booked</span>
+              <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:16%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <button class="btn btn-primary" data-nav="opportunities">View Reactivation Opportunities →</button>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-col-main">
+            <div class="card">
+              <div class="card-header"><h3>Pipeline Generated — Last 8 Weeks</h3><span class="card-header-sub">$184,500 total</span></div>
+              <div class="bar-chart" id="pipeline-chart"></div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3>Recent AI Activity</h3></div>
+              <ul class="activity-list" id="activity-list"></ul>
+            </div>
+          </div>
+          <div class="dash-col-side">
+            <div class="card crm-status-card">
+              <div class="crm-status-head">
+                <div class="crm-logo">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <div style="font-weight:700;font-size:13.5px">Nutshell CRM</div>
+                  <span class="pill pill-green">Connected</span>
+                </div>
+              </div>
+              <dl class="crm-status-meta">
+                <div><dt>Records synced</dt><dd class="mono">30,247</dd></div>
+                <div><dt>Last sync</dt><dd>12 minutes ago</dd></div>
+                <div><dt>Sync frequency</dt><dd>Every 15 min</dd></div>
+                <div><dt>Fields mapped</dt><dd>38 of 38</dd></div>
+              </dl>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3>Opportunities Requiring Attention</h3></div>
+              <ul class="attention-list" id="attention-list"></ul>
+              <button class="card-footer-link" data-nav="opportunities">View all opportunities →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ OPPORTUNITY QUEUE ============ -->
+      <section class="view" id="view-opportunities">
+        <div class="filter-row" id="filter-row">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="a-tier">A-Tier</button>
+          <button class="filter-pill" data-filter="b-tier">B-Tier</button>
+          <button class="filter-pill" data-filter="needs-review">Needs Review</button>
+          <button class="filter-pill" data-filter="in-conversation">In Conversation</button>
+        </div>
+        <div class="card table-card">
+          <div class="card-header"><h3>AI Opportunity Queue</h3><span class="card-header-sub" id="queue-count">1,284 dormant opportunities identified</span></div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Company</th><th>Contact Name</th><th>Last Interaction</th><th>Opportunity Score</th><th>Tier</th><th>Estimated Value</th><th>Next Best Action</th><th>Status</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="opportunities-tbody"></tbody>
+            </table>
+          </div>
+          <div class="table-footer">AI continuously re-scores opportunities as new signals are detected</div>
+        </div>
+      </section>
+
+      <!-- ============ LEAD INTELLIGENCE ============ -->
+      <section class="view" id="view-lead">
+        <button class="back-link" data-nav="opportunities">← Back to Opportunities</button>
+
+        <div class="lead-head">
+          <div>
+            <div class="lead-title-row">
+              <h1>Northstar Dental</h1>
+              <span class="pill pill-green">A-Tier Opportunity</span>
+            </div>
+            <p class="lead-sub">Sarah Mitchell · Dormant since Jul 2025 · Previous SEO client</p>
+          </div>
+          <div class="lead-head-actions">
+            <button class="btn btn-secondary btn-sm" data-nav="decisions">View AI Decision Log</button>
+          </div>
+        </div>
+
+        <div class="lead-grid">
+          <div class="card pad">
+            <h3 style="margin-bottom:14px">CRM History</h3>
+            <dl class="info-list">
+              <div><dt>Relationship</dt><dd>Previous SEO client</dd></div>
+              <div><dt>Historical revenue</dt><dd class="mono">$14,400</dd></div>
+              <div><dt>Last engagement</dt><dd>14 months ago</dd></div>
+              <div><dt>Reason for churn</dt><dd>Budget reduction</dd></div>
+            </dl>
+          </div>
+          <div class="card pad">
+            <h3 style="margin-bottom:14px">AI Enrichment</h3>
+            <ul class="enrich-list">
+              <li><svg class="enrich-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Company still active</li>
+              <li><svg class="enrich-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Website recently redesigned</li>
+              <li><svg class="enrich-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> New location detected</li>
+              <li><svg class="enrich-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Organic visibility declined 18%</li>
+              <li><svg class="enrich-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Paid search activity detected</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lead-grid">
+          <div class="card pad">
+            <h3 style="margin-bottom:14px">Explainable AI Score</h3>
+            <div class="score-explain">
+              <div class="score-explain-row"><span class="score-explain-label">Previous customer</span><div class="score-explain-bar-track"><div class="score-explain-bar-fill" style="width:100%"></div></div><span class="score-explain-value">+25</span></div>
+              <div class="score-explain-row"><span class="score-explain-label">Recent growth signal</span><div class="score-explain-bar-track"><div class="score-explain-bar-fill" style="width:80%"></div></div><span class="score-explain-value">+20</span></div>
+              <div class="score-explain-row"><span class="score-explain-label">Marketing need detected</span><div class="score-explain-bar-track"><div class="score-explain-bar-fill" style="width:76%"></div></div><span class="score-explain-value">+19</span></div>
+              <div class="score-explain-row"><span class="score-explain-label">High historical value</span><div class="score-explain-bar-track"><div class="score-explain-bar-fill" style="width:68%"></div></div><span class="score-explain-value">+17</span></div>
+              <div class="score-explain-row"><span class="score-explain-label">Recent website activity</span><div class="score-explain-bar-track"><div class="score-explain-bar-fill" style="width:40%"></div></div><span class="score-explain-value">+10</span></div>
+            </div>
+            <div class="score-total-row"><span>Total Score</span><span class="mono">91 / 100</span></div>
+          </div>
+          <div class="card pad" style="display:flex;align-items:center;justify-content:center">
+            <div class="score-ring-wrap" id="lead-score-ring"></div>
+          </div>
+        </div>
+
+        <div class="card pad nba-card">
+          <h3 style="margin-bottom:10px">Next Best Action</h3>
+          <p class="nba-text">"Re-engage with a personalized growth opportunity focused on the company's new location and declining organic visibility."</p>
+          <div class="nba-footer">
+            <span class="pill pill-green">Confidence: High</span>
+            <div class="nba-actions">
+              <button class="btn btn-secondary" id="btn-human-review">Human Review</button>
+              <button class="btn btn-primary" data-nav="reactivation">Generate Outreach →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REACTIVATION ============ -->
+      <section class="view" id="view-reactivation">
+        <button class="back-link" data-nav="lead">← Back to Lead Intelligence</button>
+        <div class="section-title-row"><h2>AI Reactivation — Northstar Dental</h2></div>
+
+        <div class="reactivation-grid">
+          <div class="card message-card">
+            <h3 style="margin-bottom:14px">Generated Outreach Message</h3>
+            <div class="message-bubble" id="message-bubble"></div>
+            <textarea class="message-textarea" id="message-textarea" hidden></textarea>
+            <div class="reactivation-actions">
+              <button class="btn btn-primary" id="btn-approve-send">Approve &amp; Send</button>
+              <button class="btn btn-secondary" id="btn-regenerate">Regenerate</button>
+              <button class="btn btn-secondary" id="btn-edit">Edit</button>
+            </div>
+            <div class="sending-state" id="sending-state" hidden><span class="spinner"></span> Sending via outreach channel…</div>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin-bottom:14px">Strategy Brief</h3>
+            <dl class="strategy-list">
+              <div class="strategy-item"><dt>Strategy</dt><dd>Reactivation</dd></div>
+              <div class="strategy-item"><dt>Buyer Type</dt><dd>Growth-focused owner</dd></div>
+              <div class="strategy-item"><dt>Primary Angle</dt><dd>New-location growth</dd></div>
+              <div class="strategy-item"><dt>Offer</dt><dd>SEO opportunity review</dd></div>
+              <div class="strategy-item">
+                <dt>AI Confidence</dt>
+                <dd class="mono">92%</dd>
+                <div class="confidence-bar-track"><div class="confidence-bar-fill" style="width:92%"></div></div>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONVERSATION ============ -->
+      <section class="view" id="view-conversation">
+        <button class="back-link" data-nav="reactivation">← Back to Reactivation</button>
+        <div class="section-title-row"><h2>AI Sales Conversation — Northstar Dental</h2><span class="pill pill-blue" id="conv-status-pill">In Conversation</span></div>
+
+        <div class="conversation-grid">
+          <div class="card">
+            <div class="thread" id="thread"></div>
+            <div class="handoff-banner" id="handoff-banner" hidden>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><circle cx="12" cy="8.5" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 19c1-3 3.7-4.6 6.5-4.6s5.5 1.6 6.5 4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Conversation handed to a human rep for the next reply.
+            </div>
+            <div class="conversation-actions" id="conversation-actions">
+              <button class="btn btn-primary" id="btn-continue-auto">Continue Automatically →</button>
+              <button class="btn btn-secondary" id="btn-take-over">Take Over Conversation</button>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin-bottom:14px">Automatic Response Analysis</h3>
+            <dl class="analysis-list">
+              <div class="analysis-item"><dt>Intent</dt><dd>Interested</dd></div>
+              <div class="analysis-item"><dt>Opportunity</dt><dd>SEO / Local Growth</dd></div>
+              <div class="analysis-item"><dt>Buying Signal</dt><dd><span class="pill pill-green">High</span></dd></div>
+              <div class="analysis-item"><dt>Objection</dt><dd>None</dd></div>
+              <div class="analysis-item"><dt>Recommended Sales Method</dt><dd>Consultative</dd></div>
+              <div class="analysis-item"><dt>Next Action</dt><dd>Diagnose current organic visibility before recommending service.</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ QUALIFIED OPPORTUNITY ============ -->
+      <section class="view" id="view-qualified">
+        <button class="back-link" data-nav="conversation">← Back to Conversation</button>
+
+        <div class="qualified-banner">
+          <span class="qualified-banner-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div>
+            <div class="qualified-title">Northstar Dental — Qualified Opportunity</div>
+            <div class="qualified-sub">AI qualification complete · Meeting booked · CRM updated automatically</div>
+          </div>
+        </div>
+
+        <div class="qual-stats-grid">
+          <div class="card qual-stat-card"><div class="qual-stat-label">Opportunity Score</div><div class="qual-stat-value mono">96 / 100</div></div>
+          <div class="card qual-stat-card"><div class="qual-stat-label">Recommended Service</div><div class="qual-stat-value" style="font-size:15px">Local SEO + Organic Growth</div></div>
+          <div class="card qual-stat-card"><div class="qual-stat-label">Estimated Deal</div><div class="qual-stat-value mono">$18,000</div></div>
+          <div class="card qual-stat-card"><div class="qual-stat-label">Decision Maker</div><div class="qual-stat-value" style="font-size:15px;color:var(--green)">Confirmed</div></div>
+          <div class="card qual-stat-card"><div class="qual-stat-label">Timeline</div><div class="qual-stat-value" style="font-size:15px">30–60 days</div></div>
+          <div class="card qual-stat-card"><div class="qual-stat-label">Meeting</div><div class="qual-stat-value" style="font-size:15px;color:var(--green)">Booked</div></div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-col-main">
+            <div class="card">
+              <div class="card-header"><h3>Activity Timeline</h3></div>
+              <ul class="timeline">
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="timeline-line"></div></div><span class="timeline-text">Lead identified from dormant CRM records</span></li>
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="timeline-line"></div></div><span class="timeline-text">AI scored opportunity — 91/100, A-Tier</span></li>
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="timeline-line"></div></div><span class="timeline-text">Personalized reactivation generated and sent</span></li>
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="timeline-line"></div></div><span class="timeline-text">Prospect replied — high buying signal detected</span></li>
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="timeline-line"></div></div><span class="timeline-text">AI qualified prospect — score updated to 96/100</span></li>
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="timeline-line"></div></div><span class="timeline-text">Meeting booked for discovery call</span></li>
+                <li><div class="timeline-dot-col"><span class="timeline-dot"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="timeline-text">Nutshell CRM updated automatically</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="dash-col-side">
+            <div class="card crm-update-card">
+              <div class="crm-update-head">
+                <div class="crm-logo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div>
+                  <div style="font-weight:700;font-size:13.5px">Nutshell CRM updated automatically</div>
+                  <span class="pill pill-green">Sync complete</span>
+                </div>
+              </div>
+              <ul class="crm-update-fields">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--green)"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Lead status</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--green)"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Opportunity value</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--green)"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Conversation summary</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--green)"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Next action</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--green)"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Meeting</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--green)"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> AI score</li>
+              </ul>
+            </div>
+            <button class="btn btn-primary" data-nav="pipeline" style="width:100%">View Opportunity in Pipeline →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ AI DECISION LOG ============ -->
+      <section class="view" id="view-decisions">
+        <div class="section-title-row"><h2>AI Decision Log</h2><span class="card-header-sub">Northstar Dental · Sep 14, 2026</span></div>
+        <div class="card decision-timeline">
+          <div class="decision-item">
+            <div class="decision-time mono">09:14</div>
+            <div>
+              <div class="decision-headline">Lead re-scored from 72 → 91</div>
+              <div class="decision-reason">Reason: new business growth signal detected (new location, declining organic visibility).</div>
+              <div class="decision-meta-row"><span class="pill pill-green">Confidence: High</span><span class="pill pill-neutral">Action: Score updated</span><span class="pill pill-slate">Human approval not required</span></div>
+            </div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-time mono">09:15</div>
+            <div>
+              <div class="decision-headline">Lead moved B-Tier → A-Tier</div>
+              <div class="decision-reason">Reason: updated score of 91 crossed the A-Tier threshold (85+).</div>
+              <div class="decision-meta-row"><span class="pill pill-green">Confidence: High</span><span class="pill pill-neutral">Action: Tier updated</span><span class="pill pill-slate">Human approval not required</span></div>
+            </div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-time mono">09:16</div>
+            <div>
+              <div class="decision-headline">Next Best Action selected: Personalized reactivation</div>
+              <div class="decision-reason">Reason: A-Tier score, prior customer relationship, and an active growth signal favor a direct, personalized approach over a nurture sequence.</div>
+              <div class="decision-meta-row"><span class="pill pill-green">Confidence: High</span><span class="pill pill-neutral">Action: NBA set</span><span class="pill pill-slate">Human approval not required</span></div>
+            </div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-time mono">09:18</div>
+            <div>
+              <div class="decision-headline">Outreach message generated</div>
+              <div class="decision-reason">Reason: drafted using the new-location growth angle and declining organic visibility signal identified during enrichment.</div>
+              <div class="decision-meta-row"><span class="pill pill-amber">Confidence: 92%</span><span class="pill pill-neutral">Action: Draft created</span><span class="pill pill-red">Human approval required</span></div>
+            </div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-time mono">09:22</div>
+            <div>
+              <div class="decision-headline">Human approval received</div>
+              <div class="decision-reason">Reason: reviewer approved the draft without edits.</div>
+              <div class="decision-meta-row"><span class="pill pill-neutral">Action: Approved</span><span class="pill pill-slate">Reviewed by: Revenue Operations</span></div>
+            </div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-time mono">09:24</div>
+            <div>
+              <div class="decision-headline">Message sent</div>
+              <div class="decision-reason">Reason: approval received; outreach delivered through the connected channel.</div>
+              <div class="decision-meta-row"><span class="pill pill-green">Confidence: High</span><span class="pill pill-neutral">Action: Outreach delivered</span><span class="pill pill-slate">Already approved</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONVERSATIONS LIST ============ -->
+      <section class="view" id="view-conversations">
+        <div class="card">
+          <div class="card-header"><h3>Active AI Conversations</h3><span class="card-header-sub">47 in progress</span></div>
+          <ul class="activity-list" id="conversations-list"></ul>
+        </div>
+      </section>
+
+      <!-- ============ PIPELINE (KANBAN) ============ -->
+      <section class="view" id="view-pipeline">
+        <div class="section-title-row"><h2>Pipeline</h2><span class="card-header-sub">Opportunities generated by AI reactivation</span></div>
+        <div class="kanban" id="kanban"></div>
+      </section>
+
+      <!-- ============ INTEGRATIONS ============ -->
+      <section class="view" id="view-integrations">
+        <div class="integrations-grid">
+          <div class="card integration-card">
+            <div class="integration-head">
+              <div class="integration-logo" style="background:var(--blue-tint);color:var(--blue)">NS</div>
+              <div><div class="integration-name">Nutshell CRM</div><span class="pill pill-green">Connected</span></div>
+            </div>
+            <dl class="info-list">
+              <div><dt>Records synced</dt><dd class="mono">30,247</dd></div>
+              <div><dt>Last sync</dt><dd>12 minutes ago</dd></div>
+              <div><dt>Sync frequency</dt><dd>Every 15 min</dd></div>
+            </dl>
+          </div>
+          <div class="card integration-card disabled">
+            <div class="integration-head">
+              <div class="integration-logo" style="background:var(--surface-sunken);color:var(--ink-faint)">✉</div>
+              <div><div class="integration-name">Outreach Email</div><span class="pill pill-neutral">Coming soon</span></div>
+            </div>
+            <p style="font-size:12.5px;color:var(--ink-faint)">Direct send integration for approved outreach.</p>
+          </div>
+          <div class="card integration-card disabled">
+            <div class="integration-head">
+              <div class="integration-logo" style="background:var(--surface-sunken);color:var(--ink-faint)">📅</div>
+              <div><div class="integration-name">Calendar</div><span class="pill pill-neutral">Coming soon</span></div>
+            </div>
+            <p style="font-size:12.5px;color:var(--ink-faint)">Automatic meeting booking on qualified opportunities.</p>
+          </div>
+          <div class="card integration-card disabled">
+            <div class="integration-head">
+              <div class="integration-logo" style="background:var(--surface-sunken);color:var(--ink-faint)">☎</div>
+              <div><div class="integration-name">Dialer</div><span class="pill pill-neutral">Coming soon</span></div>
+            </div>
+            <p style="font-size:12.5px;color:var(--ink-faint)">Voice channel for AI-assisted qualification calls.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
