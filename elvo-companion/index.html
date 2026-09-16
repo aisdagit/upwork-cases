@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ELVO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="backdrop">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+</div>
+
+<div class="stage">
+
+  <header class="stage-header">
+    <div class="stage-brand">
+      <span class="stage-brand-mark">✦</span>
+      <span>ELVO</span>
+      <span class="stage-brand-sub">clickable prototype</span>
+    </div>
+    <div class="mode-toggle" role="tablist" aria-label="Switch experience">
+      <button class="mode-btn active" id="mode-btn-child" data-mode="child" role="tab" aria-selected="true">🧒 Child Experience</button>
+      <button class="mode-btn" id="mode-btn-parent" data-mode="parent" role="tab" aria-selected="false">👪 Parent Dashboard</button>
+    </div>
+  </header>
+
+  <div class="device-wrap">
+    <div class="device">
+      <div class="notch"></div>
+      <div class="statusbar">
+        <span class="time">9:41</span>
+        <span class="status-icons">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="0.8" fill="currentColor"/><rect x="5" y="4.5" width="3" height="7.5" rx="0.8" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.8" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.8" fill="currentColor" opacity="0.35"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 10.5a1.3 1.3 0 100-2.6 1.3 1.3 0 000 2.6z" fill="currentColor"/><path d="M4.3 6.6a5.2 5.2 0 017.4 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M1.8 4a8.8 8.8 0 0112.4 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/></svg>
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x="0.5" y="0.5" width="20" height="11" rx="2.5" stroke="currentColor" opacity="0.4"/><rect x="2" y="2" width="15" height="8" rx="1.2" fill="currentColor"/><rect x="21" y="4" width="1.6" height="4" rx="0.6" fill="currentColor" opacity="0.4"/></svg>
+        </span>
+      </div>
+
+      <div class="screens" id="mode-child">
+
+        <!-- SCREEN: onboarding welcome -->
+        <section class="screen active" data-screen="onboard-welcome">
+          <div class="screen-pad center-pad">
+            <div class="elvo-hero">
+              <div class="elvo-hero-glow"></div>
+              <svg class="elvo-avatar-svg" width="150" height="150" viewBox="0 0 150 150">
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#7C8CFF"/>
+                    <stop offset="1" stop-color="#4C4FE0"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="75" cy="80" rx="58" ry="52" fill="url(#g1)"/>
+                <path d="M75 30 L80 12 L88 24 Z" fill="#FFD166"/>
+                <circle cx="88" cy="14" r="5" fill="#FFD166"/>
+                <ellipse cx="55" cy="76" rx="10" ry="12" fill="#fff"/>
+                <ellipse cx="95" cy="76" rx="10" ry="12" fill="#fff"/>
+                <circle cx="57" cy="79" r="5" fill="#20234A"/>
+                <circle cx="97" cy="79" r="5" fill="#20234A"/>
+                <path d="M58 100 Q75 112 92 100" stroke="#20234A" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <circle cx="38" cy="88" r="7" fill="#FF9F45" opacity="0.85"/>
+                <circle cx="112" cy="88" r="7" fill="#FF9F45" opacity="0.85"/>
+              </svg>
+            </div>
+            <h1 class="headline">Meet ELVO</h1>
+            <p class="subtext">Your learning buddy that gets to know you over time.</p>
+            <button class="btn btn-primary btn-block" data-next="onboard-profile">Let's go</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: onboarding profile -->
+        <section class="screen" data-screen="onboard-profile">
+          <div class="screen-pad">
+            <button class="back-btn" data-back="onboard-welcome">‹</button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+            <h2 class="title-sm">Let's set up your buddy</h2>
+            <p class="subtext-sm">Just a couple of quick things — nothing serious!</p>
+
+            <div class="profile-card">
+              <div class="profile-avatar">🧑‍🚀</div>
+              <div class="profile-fields">
+                <div class="profile-field">
+                  <span class="profile-field-label">Name</span>
+                  <span class="profile-field-value">Maya</span>
+                </div>
+                <div class="profile-field">
+                  <span class="profile-field-label">Age</span>
+                  <span class="profile-field-value">9</span>
+                </div>
+              </div>
+            </div>
+            <p class="hint-text">This demo uses a made-up profile — no real information needed.</p>
+            <button class="btn btn-primary btn-block" data-next="onboard-interest">Continue</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: onboarding interest -->
+        <section class="screen" data-screen="onboard-interest">
+          <div class="screen-pad">
+            <button class="back-btn" data-back="onboard-profile">‹</button>
+            <div class="dots"><span class="dot active"></span><span class="dot active"></span><span class="dot"></span></div>
+            <h2 class="title-sm">What do you enjoy learning about?</h2>
+            <p class="subtext-sm">Pick your favorite — you can explore more later.</p>
+
+            <div class="chip-grid" id="interest-grid">
+              <button class="pick-chip" data-group="interest" data-value="Space">🚀 Space</button>
+              <button class="pick-chip" data-group="interest" data-value="Animals">🐾 Animals</button>
+              <button class="pick-chip" data-group="interest" data-value="Art">🎨 Art</button>
+              <button class="pick-chip" data-group="interest" data-value="Dinosaurs">🦕 Dinosaurs</button>
+              <button class="pick-chip" data-group="interest" data-value="Technology">💻 Technology</button>
+            </div>
+            <button class="btn btn-primary btn-block" id="btn-interest-continue" data-next="onboard-style" disabled>Continue</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: onboarding style + CTA -->
+        <section class="screen" data-screen="onboard-style">
+          <div class="screen-pad">
+            <button class="back-btn" data-back="onboard-interest">‹</button>
+            <div class="dots"><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span></div>
+            <h2 class="title-sm">How do you like learning?</h2>
+            <p class="subtext-sm">There's no wrong answer!</p>
+
+            <div class="chip-grid two-col" id="style-grid">
+              <button class="pick-chip" data-group="style" data-value="Stories">📖 Stories</button>
+              <button class="pick-chip" data-group="style" data-value="Questions">❓ Questions</button>
+              <button class="pick-chip" data-group="style" data-value="Challenges">🏆 Challenges</button>
+              <button class="pick-chip" data-group="style" data-value="Pictures">🖼️ Pictures</button>
+            </div>
+
+            <div class="reveal-cta" id="reveal-start-cta">
+              <button class="btn btn-primary btn-block" data-next="voice-session">Start with ELVO</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: first voice session -->
+        <section class="screen" data-screen="voice-session">
+          <div class="screen-pad voice-pad">
+            <div class="voice-top">
+              <span class="voice-title">Talking with ELVO</span>
+              <span class="voice-progress" id="voice-progress">Turn 1 of 6</span>
+            </div>
+
+            <div class="voice-avatar-zone">
+              <div class="voice-ring" id="voice-ring">
+                <svg class="elvo-avatar-svg small" width="96" height="96" viewBox="0 0 150 150">
+                  <ellipse cx="75" cy="80" rx="58" ry="52" fill="#5E6BE8"/>
+                  <path d="M75 30 L80 12 L88 24 Z" fill="#FFD166"/>
+                  <ellipse cx="55" cy="76" rx="10" ry="12" fill="#fff"/>
+                  <ellipse cx="95" cy="76" rx="10" ry="12" fill="#fff"/>
+                  <circle cx="57" cy="79" r="5" fill="#20234A"/>
+                  <circle cx="97" cy="79" r="5" fill="#20234A"/>
+                  <path d="M58 100 Q75 112 92 100" stroke="#20234A" stroke-width="4" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+              <div class="waveform" id="waveform">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="voice-state" id="voice-state">Ready when you are</div>
+            </div>
+
+            <div class="transcript" id="voice-transcript"></div>
+
+            <div class="voice-controls">
+              <button class="mic-btn" id="mic-btn" aria-label="Continue conversation">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-5a3.5 3.5 0 0 0-7 0v5A3.5 3.5 0 0 0 12 15z" stroke="currentColor" stroke-width="1.7"/><path d="M6 11a6 6 0 0 0 12 0M12 19v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </button>
+              <button class="btn btn-end" id="btn-end-session" data-next="session-complete">End Session</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: session complete -->
+        <section class="screen" data-screen="session-complete">
+          <div class="screen-pad center-pad">
+            <div class="celebrate-icon">🌟</div>
+            <h2 class="title-sm center">Nice exploring today, Maya!</h2>
+
+            <div class="card recap-card">
+              <div class="recap-label">Today you explored</div>
+              <ul class="recap-list">
+                <li>Saturn's rings</li>
+                <li>Planets</li>
+                <li>Your upcoming science quiz</li>
+              </ul>
+            </div>
+
+            <div class="badge-row">
+              <div class="progress-badge">
+                <div class="progress-badge-icon">🚀</div>
+                <div>
+                  <div class="progress-badge-title">Space Explorer</div>
+                  <div class="progress-badge-sub">Level 3</div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-block" data-next="closing">Done</button>
+            <button class="btn btn-link" data-next="returning-session">Next session →</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: closing / bridge -->
+        <section class="screen" data-screen="closing">
+          <div class="screen-pad center-pad">
+            <div class="elvo-hero small">
+              <svg class="elvo-avatar-svg" width="110" height="110" viewBox="0 0 150 150">
+                <ellipse cx="75" cy="80" rx="58" ry="52" fill="#7C8CFF"/>
+                <ellipse cx="55" cy="80" rx="9" ry="6" fill="#fff"/>
+                <ellipse cx="95" cy="80" rx="9" ry="6" fill="#fff"/>
+                <circle cx="55" cy="80" r="3.5" fill="#20234A"/>
+                <circle cx="95" cy="80" r="3.5" fill="#20234A"/>
+                <path d="M58 98 Q75 106 92 98" stroke="#20234A" stroke-width="4" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <h2 class="title-sm center">See you soon, Maya! 👋</h2>
+            <p class="subtext-sm center">ELVO will remember what you explored today.</p>
+
+            <div class="demo-note">
+              <span>For this demo</span>
+              <button class="btn btn-secondary btn-block" data-next="returning-session">Next session</button>
+              <span class="demo-note-hint">Simulates Maya returning a few days later</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: returning session -->
+        <section class="screen" data-screen="returning-session">
+          <div class="screen-pad voice-pad">
+            <div class="voice-top">
+              <span class="voice-title">Talking with ELVO</span>
+              <span class="memory-chip">💭 Picked up from your previous session</span>
+            </div>
+
+            <div class="voice-avatar-zone small-zone">
+              <div class="voice-ring" id="ret-voice-ring">
+                <svg class="elvo-avatar-svg small" width="84" height="84" viewBox="0 0 150 150">
+                  <ellipse cx="75" cy="80" rx="58" ry="52" fill="#5E6BE8"/>
+                  <path d="M75 30 L80 12 L88 24 Z" fill="#FFD166"/>
+                  <ellipse cx="55" cy="76" rx="10" ry="12" fill="#fff"/>
+                  <ellipse cx="95" cy="76" rx="10" ry="12" fill="#fff"/>
+                  <circle cx="57" cy="79" r="5" fill="#20234A"/>
+                  <circle cx="97" cy="79" r="5" fill="#20234A"/>
+                  <path d="M58 100 Q75 112 92 100" stroke="#20234A" stroke-width="4" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="transcript" id="returning-transcript"></div>
+
+            <div class="voice-controls" id="returning-controls">
+              <button class="mic-btn" id="ret-mic-btn" aria-label="Continue conversation">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-5a3.5 3.5 0 0 0-7 0v5A3.5 3.5 0 0 0 12 15z" stroke="currentColor" stroke-width="1.7"/><path d="M6 11a6 6 0 0 0 12 0M12 19v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+
+            <div class="choice-row hidden" id="story-or-quiz">
+              <button class="btn btn-choice" id="btn-story-yes" data-next="learning-moment">Yes!</button>
+              <button class="btn btn-choice ghost" id="btn-quiz-instead">Quiz me instead</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN: learning moment -->
+        <section class="screen" data-screen="learning-moment">
+          <div class="screen-pad">
+            <button class="back-btn" data-back="returning-session">‹</button>
+            <h2 class="title-sm">Space Adventure 🪐</h2>
+
+            <div class="story-card">
+              <p>Captain Maya's ship glides past the moons of Saturn. Through the window, she sees a wide, glittering ring stretching further than she can see.</p>
+              <p class="story-line">"Computer — what are these rings actually made of?" Maya asks.</p>
+            </div>
+
+            <div class="quiz-card">
+              <div class="quiz-question">What are Saturn's rings mostly made of?</div>
+              <div class="quiz-options" id="quiz-options">
+                <button class="quiz-opt" data-value="Fire">🔥 Fire</button>
+                <button class="quiz-opt" data-value="Ice and rock">🧊 Ice and rock</button>
+                <button class="quiz-opt" data-value="Gas">💨 Gas</button>
+                <button class="quiz-opt" data-value="Water">💧 Water</button>
+              </div>
+              <div class="quiz-feedback" id="quiz-feedback"></div>
+            </div>
+
+            <div class="progress-pop hidden" id="progress-pop">
+              <span class="pop-chip">+ Learning progress</span>
+              <span class="pop-chip">+ Confidence improved</span>
+            </div>
+
+            <button class="btn btn-primary btn-block" id="btn-finish-session" data-next="demo-complete" disabled>Finish Session</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: demo complete -->
+        <section class="screen" data-screen="demo-complete">
+          <div class="screen-pad center-pad">
+            <div class="celebrate-icon">🎉</div>
+            <h2 class="title-sm center">Way to go, Maya!</h2>
+            <p class="subtext-sm center">Saturn isn't so tricky anymore — you'll be ready for Friday's quiz.</p>
+
+            <div class="badge-row">
+              <div class="progress-badge">
+                <div class="progress-badge-icon">🚀</div>
+                <div>
+                  <div class="progress-badge-title">Space Explorer</div>
+                  <div class="progress-badge-sub">Level 4 <span class="level-up">▲ leveled up</span></div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary btn-block" data-goto-parent="parent-dashboard">See Maya's progress →</button>
+            <button class="btn btn-link" data-next="onboard-welcome">↺ Restart demo</button>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="screens hidden" id="mode-parent">
+
+        <!-- SCREEN: parent dashboard -->
+        <section class="screen active" data-screen="parent-dashboard">
+          <div class="screen-pad parent-pad">
+            <div class="parent-header">
+              <div class="parent-avatar">M</div>
+              <div>
+                <div class="parent-title">Maya's Learning</div>
+                <div class="parent-subtitle">Weekly overview</div>
+              </div>
+            </div>
+
+            <div class="stat-grid">
+              <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Sessions this week</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">1h 24m</div>
+                <div class="stat-label">Learning time</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Topics explored</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">🔥 4 days</div>
+                <div class="stat-label">Learning streak</div>
+              </div>
+            </div>
+
+            <div class="section-label">Recent progress</div>
+            <div class="card progress-list-card">
+              <div class="progress-row">
+                <span>Science</span>
+                <span class="status-pill amber">Improving</span>
+              </div>
+              <div class="progress-row">
+                <span>Reading</span>
+                <span class="status-pill mint">Strong</span>
+              </div>
+              <div class="progress-row">
+                <span>Math</span>
+                <span class="status-pill coral">Needs practice</span>
+              </div>
+            </div>
+
+            <div class="section-label">Current interests</div>
+            <div class="chip-row">
+              <span class="tag-chip">Space</span>
+              <span class="tag-chip">Animals</span>
+              <span class="tag-chip">Story-based learning</span>
+            </div>
+
+            <div class="section-label">Recent learning insight</div>
+            <div class="card insight-card">
+              "Maya initially had difficulty recalling facts about Saturn but showed improved recall during her latest session."
+            </div>
+
+            <div class="section-label">How ELVO is personalizing</div>
+            <div class="card personalize-card">
+              <div class="personalize-row"><span class="pz-dot"></span>Uses story-based explanations more often</div>
+              <div class="personalize-row"><span class="pz-dot"></span>Revisits concepts Maya previously found difficult</div>
+              <div class="personalize-row"><span class="pz-dot"></span>Adjusts question difficulty based on recent performance</div>
+            </div>
+
+            <button class="btn btn-primary btn-block" data-next-parent="report-upload">Add School Report</button>
+            <button class="btn btn-link" data-next-parent="learning-profile">View Learning Profile →</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: report upload -->
+        <section class="screen" data-screen="report-upload">
+          <div class="screen-pad">
+            <button class="back-btn" data-back-parent="parent-dashboard">‹</button>
+            <h2 class="title-sm">Add School Report</h2>
+            <p class="subtext-sm">ELVO can read a report card to understand Maya's subject strengths.</p>
+
+            <div class="upload-options">
+              <button class="upload-tile" data-upload="photo">
+                <span class="upload-icon">📷</span>
+                Take Photo
+              </button>
+              <button class="upload-tile" data-upload="file">
+                <span class="upload-icon">📄</span>
+                Upload Report
+              </button>
+            </div>
+            <p class="hint-text">Prototype only — no file is needed to continue.</p>
+          </div>
+        </section>
+
+        <!-- SCREEN: processing -->
+        <section class="screen" data-screen="report-processing">
+          <div class="screen-pad center-pad">
+            <div class="spinner"></div>
+            <h2 class="title-sm center">ELVO is reviewing the report…</h2>
+            <p class="subtext-sm center">Reading subject grades and comments</p>
+          </div>
+        </section>
+
+        <!-- SCREEN: report results -->
+        <section class="screen" data-screen="report-results">
+          <div class="screen-pad">
+            <button class="back-btn" data-back-parent="parent-dashboard">‹</button>
+            <h2 class="title-sm">Report Summary</h2>
+
+            <div class="card progress-list-card">
+              <div class="progress-row">
+                <span>Science</span>
+                <span class="status-pill mint">Strong</span>
+              </div>
+              <div class="progress-row">
+                <span>Reading</span>
+                <span class="status-pill mint">Strong</span>
+              </div>
+              <div class="progress-row">
+                <span>Math</span>
+                <span class="status-pill amber">Developing</span>
+              </div>
+            </div>
+
+            <div class="section-label">Suggested focus</div>
+            <div class="card insight-card">Practice multi-step math problems</div>
+
+            <div class="confirm-banner">✅ Added to Maya's learning profile</div>
+
+            <button class="btn btn-primary btn-block" data-next-parent="learning-profile">View Learning Plan</button>
+          </div>
+        </section>
+
+        <!-- SCREEN: learning profile -->
+        <section class="screen" data-screen="learning-profile">
+          <div class="screen-pad">
+            <button class="back-btn" data-back-parent="parent-dashboard">‹</button>
+            <h2 class="title-sm">Learning Profile</h2>
+            <p class="subtext-sm">A living picture of how Maya learns — always evolving, never fixed.</p>
+
+            <div class="section-label">Interests</div>
+            <div class="chip-row">
+              <span class="tag-chip">Space</span>
+              <span class="tag-chip">Animals</span>
+            </div>
+
+            <div class="section-label">Learning preferences</div>
+            <div class="card personalize-card">
+              <div class="personalize-row"><span class="pz-dot"></span>Responds well to stories</div>
+              <div class="personalize-row"><span class="pz-dot"></span>Enjoys short challenges</div>
+            </div>
+
+            <div class="section-label">Current learning goals</div>
+            <div class="card personalize-card">
+              <div class="personalize-row"><span class="pz-dot"></span>Science quiz preparation</div>
+              <div class="personalize-row"><span class="pz-dot"></span>Multi-step math practice</div>
+            </div>
+
+            <div class="section-label">Progress signals</div>
+            <div class="signal-list">
+              <div class="signal-row">
+                <span>Science confidence increasing</span>
+                <span class="signal-tag reinforced">Reinforced</span>
+              </div>
+              <div class="signal-row evolve">
+                <div class="evolve-old">"Needs help remembering Saturn"</div>
+                <div class="evolve-arrow">↓ updated after latest session</div>
+                <div class="evolve-new">"Successfully recalls key Saturn concepts"</div>
+                <span class="signal-tag updated">Updated</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="stage-footer">
+    <button class="restart-btn" id="restart-all">↺ Restart full demo</button>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
