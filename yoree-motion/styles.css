@@ -16,6 +16,9 @@
 [hidden] { display: none !important; }
 
 :root {
+  /* Deliberately single-theme (warm light) — the device mockup and its
+     surrounding stage keep the same palette regardless of host theme. */
+  color-scheme: light;
   /* ---- palette (adapted from reference: warm cream + ink brown) ---- */
   --stage-bg: #b39568;
   --bg: #f7f2e7;
