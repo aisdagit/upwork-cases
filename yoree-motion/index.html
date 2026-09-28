@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yoree — Motion Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="stage">
+  <div class="phone-wrap">
+    <div class="phone" id="phone" data-motion="normal">
+
+      <div class="dynamic-island"></div>
+      <div class="statusbar">
+        <span>9:41</span>
+        <span class="icons">
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none"><path d="M1 8L1 10M4.3 6L4.3 10M7.6 4L7.6 10M11 2L11 10M14.3 1L14.3 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="none"><path d="M7.5 2.2C10 2.2 12.3 3.2 14 5L12.6 6.5C11.2 5.2 9.4 4.4 7.5 4.4C5.6 4.4 3.8 5.2 2.4 6.5L1 5C2.7 3.2 5 2.2 7.5 2.2Z" fill="currentColor"/><circle cx="7.5" cy="9" r="1.2" fill="currentColor"/></svg>
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="19" height="10" rx="2.5" stroke="currentColor" stroke-width="1.2"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.2" fill="currentColor"/><rect x="21.5" y="4" width="1.6" height="4" rx="0.8" fill="currentColor"/></svg>
+        </span>
+      </div>
+
+      <div class="screens" id="screens">
+
+        <!-- ============ SCREEN 13 · LOADING ============ -->
+        <section class="screen" data-screen="loading" id="screen-loading">
+          <div class="app-header"><div class="wordmark">Yoree</div><div class="subline">Your memories</div></div>
+          <div class="sk-featured skeleton"></div>
+          <div class="section-label" style="opacity:.5">Recent Memories</div>
+          <div class="sk-row"><div class="sk-card skeleton"></div><div class="sk-card skeleton"></div></div>
+        </section>
+
+        <!-- ============ SCREEN 1 · MEMORIES HOME ============ -->
+        <section class="screen" data-screen="home" id="screen-home">
+          <div class="screen-scroll">
+            <div class="app-header">
+              <div class="wordmark enter-item">Yoree</div>
+              <div class="subline enter-item stagger-1">Your memories</div>
+              <div class="greeting enter-item stagger-1">Good afternoon, Umer.</div>
+              <div class="greeting-sub enter-item stagger-2">Here's a moment worth revisiting.</div>
+            </div>
+
+            <div class="featured-card pressable enter-item stagger-2" id="featured-card" data-open-memory="summer-sea">
+              <div class="cover">
+                <div class="hero-target" id="featured-hero-target"><div class="art art-sea"></div></div>
+                <div class="cover-text" id="featured-hero-text">
+                  <div class="title">Summer by the Sea</div>
+                  <div class="meta"><span>12 moments</span><span class="dot"></span><span>August 2026</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-label">Recent Memories</div>
+            <div class="recent-grid" id="recent-grid"><!-- injected --></div>
+          </div>
+
+        </section>
+
+        <!-- ============ SCREEN 2/4/8/9/10/11/12/14 · MEMORY STORY ============ -->
+        <section class="screen" data-screen="story" id="screen-story">
+          <div class="story-header" id="story-header">
+            <button class="icon-btn pressable pressable-icon" id="btn-story-back" aria-label="Back">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="compact-title" id="story-compact-title">Summer by the Sea</span>
+            <span style="width:38px"></span>
+          </div>
+
+          <div class="screen-scroll" id="story-scroll">
+            <div class="hero-wrap" id="hero-wrap">
+              <div class="hero-target" id="story-hero-target"><div class="art art-sea"></div></div>
+              <div class="hero-caption reveal-after-hero" id="story-hero-caption">
+                <div class="title" id="story-title">Summer by the Sea</div>
+                <div class="meta" id="story-meta"><span>August 2026</span><span class="dot"></span><span>12 moments</span></div>
+              </div>
+            </div>
+
+            <div class="story-list reveal-after-hero" id="story-list"><!-- injected moments --></div>
+            <div class="empty-state reveal-after-hero" id="story-empty" hidden>
+              <div class="glyph">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </div>
+              <div class="title">Your story starts here</div>
+              <div class="copy">Add a photo, video, recording or story to begin this memory.</div>
+              <button class="btn btn-primary pressable" id="btn-add-first-moment" style="margin-top:6px;padding:13px 22px;width:auto">Add First Moment</button>
+            </div>
+          </div>
+
+          <button class="fab pressable" id="btn-fab-add" aria-label="Add a moment">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </button>
+        </section>
+
+        <!-- ============ SCREEN 6 · CREATE PHOTO MEMORY ============ -->
+        <section class="screen" data-screen="create" id="screen-create">
+          <div class="create-header">
+            <button class="icon-btn pressable pressable-icon" id="btn-create-back" aria-label="Close">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <div class="title">New Photo Moment</div>
+            <span style="width:38px"></span>
+          </div>
+          <div class="screen-scroll in-flow">
+            <div class="create-scroll">
+              <div class="create-photo"><div class="art art-lastlight"></div></div>
+
+              <div class="field">
+                <label>Title</label>
+                <input type="text" id="in-title" value="Last Light" maxlength="40" />
+              </div>
+              <div class="field">
+                <label>Story</label>
+                <textarea id="in-story" maxlength="200">One more walk before heading home.</textarea>
+              </div>
+              <div class="field">
+                <label>Date</label>
+                <input type="text" id="in-date" value="August 18" maxlength="20" />
+              </div>
+
+              <div class="target-chip">
+                <div class="thumb"><div class="art art-sea" id="target-thumb"></div></div>
+                <div>
+                  <div class="label">Add to Memory</div>
+                  <div class="name" id="target-name">Summer by the Sea</div>
+                </div>
+              </div>
+
+              <div id="completion-banner" class="completion-banner">
+                <div class="spark-wrap">
+                  <svg class="spark" viewBox="0 0 34 34" width="34" height="34">
+                    <circle class="core" cx="17" cy="17" r="3.2"/>
+                    <path class="ray" d="M17 3v7"/>
+                    <path class="ray" d="M17 24v7"/>
+                    <path class="ray" d="M3 17h7" style="transform:none"/>
+                    <path class="ray" d="M24 17h7"/>
+                  </svg>
+                </div>
+                <div class="text"><div class="t1">Moment saved</div><div class="t2">Added to Summer by the Sea</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="error-panel" id="error-panel">
+            <div class="row">
+              <div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.3 3.9L2.6 17a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+              <div>
+                <div class="t1">Couldn't save this moment yet</div>
+                <div class="t2">Your changes are still here.</div>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn btn-secondary pressable" id="btn-keep-editing">Keep Editing</button>
+              <button class="btn btn-danger pressable" id="btn-try-again">Try Again</button>
+            </div>
+          </div>
+
+          <div class="create-footer">
+            <button class="btn btn-primary pressable" id="btn-save-moment">
+              <span class="btn-label">Save Moment</span>
+              <svg class="btn-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="34 200"/></svg>
+              <svg class="btn-check" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l5 5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </section>
+
+      </div><!-- /screens -->
+
+      <!-- ============ OVERLAYS ============ -->
+      <div class="overlay-layer">
+        <div class="backdrop" id="backdrop"></div>
+
+        <!-- SCREEN 3 · Open a Moment (shared-element target) -->
+        <div class="moment-detail" id="moment-detail">
+          <div class="md-media" id="md-media">
+            <div class="hero-target" id="md-hero-target"><div class="art" id="md-art"></div></div>
+            <div class="md-top">
+              <button class="icon-btn pressable pressable-icon" id="btn-md-close" aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="meaningful-btn pressable" id="btn-meaningful" aria-label="Mark as meaningful">
+                <svg class="icon-line" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.4-9.5-9C.7 7.4 2.6 4 6 4c2 0 3.4 1 4.5 2.6C11.6 5 13 4 15 4c3.4 0 5.3 3.4 3.5 7-2.5 4.6-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                <svg class="icon-fill" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20s-7-4.4-9.5-9C.7 7.4 2.6 4 6 4c2 0 3.4 1 4.5 2.6C11.6 5 13 4 15 4c3.4 0 5.3 3.4 3.5 7-2.5 4.6-9.5 9-9.5 9z"/></svg>
+              </button>
+            </div>
+
+            <!-- audio player, shown only for audio moments -->
+            <div class="audio-player" id="md-audio-player" style="position:absolute;left:22px;right:22px;bottom:22px" hidden>
+              <button class="audio-play-btn" id="btn-audio-play">
+                <svg class="ic-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5l13 7-13 7V5z"/></svg>
+                <svg class="ic-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              </button>
+              <div class="audio-body">
+                <div class="audio-track"><div class="fill" id="audio-fill"></div></div>
+                <div class="audio-meta-row"><span id="audio-elapsed">0:00</span><span class="waveform" id="audio-wave"></span><span id="audio-duration">0:48</span></div>
+              </div>
+            </div>
+
+            <!-- video controls, shown only for video moments -->
+            <div class="video-frame" id="md-video-frame" style="position:absolute;inset:0" hidden>
+              <div class="video-scrim"></div>
+              <div class="big-play" id="btn-video-play">
+                <div class="circle">
+                  <svg class="ic-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l12 7-12 7V5z"/></svg>
+                  <svg class="ic-pause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                </div>
+              </div>
+              <span class="time-chip" id="video-time-chip">0:00 / 1:12</span>
+            </div>
+          </div>
+
+          <div class="md-body">
+            <div class="md-title-row">
+              <div>
+                <div class="md-title" id="md-title">Sunset</div>
+                <div class="md-date" id="md-date">August 18</div>
+              </div>
+            </div>
+            <div class="md-quote" id="md-quote">"Stayed until the sky went completely quiet."</div>
+
+            <div class="md-tabs">
+              <div class="md-tab active" data-tab="story">Story</div>
+              <div class="md-tab" data-tab="media">Media</div>
+              <div class="md-tab" data-tab="people">People</div>
+            </div>
+            <div class="md-tab-panel" data-panel="story" id="panel-story">A quiet end to the day by the water, kept just for the memory itself.</div>
+            <div class="md-tab-panel" data-panel="media" style="display:none">1 item in this moment.</div>
+            <div class="md-tab-panel" data-panel="people" style="display:none">
+              <div class="md-people">
+                <div class="person-chip"><span class="avatar"></span>You</div>
+                <div class="person-chip"><span class="avatar"></span>Sena</div>
+              </div>
+            </div>
+
+            <div class="remove-link" id="btn-remove-moment">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4h6v3m-8 0l1 13a2 2 0 002 2h4a2 2 0 002-2l1-13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Remove from Memory
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 5 · Add a Moment sheet -->
+        <div class="sheet" id="sheet-add">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title">Add a Moment</div>
+          <div class="sheet-options">
+            <div class="sheet-option pressable-sm" data-kind="photo">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 8a2 2 0 012-2h1.5l1-1.5h7l1 1.5H18a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg></div>
+              <div class="lbl">Photo</div>
+            </div>
+            <div class="sheet-option pressable-sm" data-kind="video">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 10.5l5-2.5v8l-5-2.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+              <div class="lbl">Video</div>
+            </div>
+            <div class="sheet-option pressable-sm" data-kind="audio">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M6 11a6 6 0 0012 0M12 17v4m-3 0h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+              <div class="lbl">Audio</div>
+            </div>
+            <div class="sheet-option pressable-sm" data-kind="story">
+              <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h11l3 3v13H5V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 10h6M9 14h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+              <div class="lbl">Story</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 12 · Remove confirmation sheet -->
+        <div class="sheet" id="sheet-remove">
+          <div class="sheet-handle"></div>
+          <div class="confirm-sheet-body">
+            <div class="sheet-title" style="margin-bottom:0">Remove this moment?</div>
+            <p>It will be taken out of "<span id="remove-target-name">Sunset</span>". You can always add it again.</p>
+            <div class="confirm-sheet-actions">
+              <button class="btn btn-secondary pressable" id="btn-remove-cancel">Cancel</button>
+              <button class="btn btn-danger pressable" id="btn-remove-confirm">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ghost-el" id="ghost-el" hidden><div class="art" id="ghost-art"></div><div class="ghost-title" id="ghost-title"></div></div>
+      </div>
+
+      <div class="toast-host"><div class="toast" id="toast"></div></div>
+
+    </div><!-- /phone -->
+
+    <div class="stage-caption">Yoree — motion &amp; micro-interaction prototype · <b>390×844</b></div>
+  </div>
+
+  <!-- ============ DEMO CONTROLS (outside the device, not part of the product) ============ -->
+  <aside class="demo-controls">
+    <h2>Demo Controls</h2>
+    <div class="sub">Scaffolding for this walkthrough — not part of the Yoree UI.</div>
+
+    <div class="group">
+      <h3>Primary flow</h3>
+      <ol class="flow-steps">
+        <li>Tap "Summer by the Sea"</li>
+        <li>Scroll, then tap "Sunset"</li>
+        <li>Close, tap +, choose Photo</li>
+        <li>Review "Last Light", Save Moment</li>
+        <li>Watch it land in the timeline</li>
+      </ol>
+    </div>
+
+    <div class="group">
+      <h3>Scenarios</h3>
+      <button class="demo-btn" id="ctrl-restart">Restart demo</button>
+      <button class="demo-btn" id="ctrl-loading">Show loading state</button>
+      <button class="demo-btn" id="ctrl-empty">Show empty memory</button>
+    </div>
+
+    <div class="group">
+      <h3>Conditions</h3>
+      <div class="toggle-row"><span>Simulate save error</span><div class="toggle" id="toggle-error"></div></div>
+      <div class="toggle-row"><span>Reduced motion</span><div class="toggle" id="toggle-reduced"></div></div>
+    </div>
+
+    <div class="group">
+      <h3>Motion system</h3>
+      <div class="motion-legend">
+        <b>1. Press</b> scale 0.96, 140ms<br>
+        <b>2. Shared transition</b> FLIP geometry, 420–520ms<br>
+        <b>3. Bottom sheet</b> spring translateY, drag-to-dismiss<br>
+        <b>4. Insertion</b> fade + scale + highlight<br>
+        <b>5. Removal</b> collapse height, siblings reflow<br>
+        <b>6. State swap</b> icon crossfade, loading→success<br>
+        <b>7. Completion</b> one-shot spark, ~600ms
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
