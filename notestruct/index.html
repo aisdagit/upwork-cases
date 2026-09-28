@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NoteStruct — Turn rough notes into something useful</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">N</span>
+        <span class="brand__name">NoteStruct</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1 class="hero__title">Turn rough notes into something useful.</h1>
+      <p class="hero__subtitle">Paste your notes below and get a clear summary, key points and practical next steps.</p>
+    </section>
+
+    <section class="panel" aria-label="Note input">
+      <div class="field">
+        <div class="field__head">
+          <label class="field__label" for="notes-input">Your notes</label>
+          <span class="char-count" id="char-count">0 characters</span>
+        </div>
+        <textarea
+          id="notes-input"
+          class="field__textarea"
+          placeholder="Paste your rough notes here..."
+          rows="10"
+        ></textarea>
+      </div>
+
+      <div class="panel__footer">
+        <p class="error-inline" id="error-inline" hidden>
+          <span class="error-inline__text">Something went wrong. Your text is still here.</span>
+          <span class="error-inline__actions">
+            <button type="button" class="btn btn--ghost btn--sm" id="btn-edit-text">Edit Text</button>
+            <button type="button" class="btn btn--primary btn--sm" id="btn-try-again">Try Again</button>
+          </span>
+        </p>
+        <button type="button" class="btn btn--primary" id="btn-generate" disabled>
+          <span class="btn__label">Generate</span>
+          <span class="btn__spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="result" id="result-section" hidden aria-live="polite">
+      <div class="result__card">
+        <div class="result__toolbar">
+          <span class="result__eyebrow">Structured output</span>
+          <button type="button" class="btn btn--ghost btn--sm" id="btn-copy">
+            <span id="copy-label">Copy</span>
+          </button>
+        </div>
+
+        <div id="result-skeleton" class="skeleton" hidden>
+          <div class="skeleton__block skeleton__block--title"></div>
+          <div class="skeleton__block skeleton__block--line"></div>
+          <div class="skeleton__block skeleton__block--line short"></div>
+          <div class="skeleton__gap"></div>
+          <div class="skeleton__block skeleton__block--heading"></div>
+          <div class="skeleton__block skeleton__block--line"></div>
+          <div class="skeleton__block skeleton__block--line"></div>
+          <div class="skeleton__block skeleton__block--line short"></div>
+        </div>
+
+        <div id="result-content" class="result__content" hidden>
+          <div class="result__block">
+            <h2 class="result__doc-title" id="out-title"></h2>
+          </div>
+
+          <div class="result__block">
+            <h3 class="result__heading">Summary</h3>
+            <p class="result__summary" id="out-summary"></p>
+          </div>
+
+          <div class="result__block">
+            <h3 class="result__heading">Key Points</h3>
+            <ul class="result__list" id="out-keypoints"></ul>
+          </div>
+
+          <div class="result__block">
+            <h3 class="result__heading">Next Steps</h3>
+            <ul class="result__list" id="out-nextsteps"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
